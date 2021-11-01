@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <title>Draw it Together</title>
+</head>
+<body>
+
+  <script>
+    let themeFromLocalStorage = localStorage.getItem("darkTheme")
+
+    if (themeFromLocalStorage === "true"){
+      document.body.style.backgroundColor = '#212121'
+      window.darkTheme = true
+    }
+    else if (themeFromLocalStorage === "false") {
+      window.darkTheme = false
+      document.body.style.backgroundColor = '#f0f0f0'
+    }else {
+      if (window.matchMedia("(prefers-color-scheme: dark)")){
+        document.body.style.backgroundColor = '#212121'
+        window.darkTheme = true
+      }else {
+        window.darkTheme = false
+        document.body.style.backgroundColor = '#f0f0f0'
+      } 
+    }
+  </script>
+  <div id="root"></div>
+</body>
+</html>
